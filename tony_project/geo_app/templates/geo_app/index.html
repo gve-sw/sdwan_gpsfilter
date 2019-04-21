@@ -1,0 +1,42 @@
+<html><head>
+    <title>Cisco vManage</title>
+    <link rel="stylesheet" type="text/css" href="../../static/geo_app/styles/login.css">
+    <link rel="stylesheet" type="text/css" href="../../static/geo_app/styles/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="../../static/geo_app/styles/bootstrap.min.css">
+        <script type="text/javascript" src="../../static/geo_app/javascript/jquery.js"></script>
+        <link rel="icon" type="image/ico" href="favicon.ico">
+  </head>
+  <body onload="init()">
+      <div name="Login" class="loginContainer">
+      <div class="loginInnerContainer">
+        <div class="productCategory">Cisco SD-WAN</div>
+       
+	    <form class="loginFormStyle" name="loginForm" id="loginForm" method="POST" autocomplete="off">
+		{% csrf_token %}
+          <div name="logoMainContainer" class="logoMainContainer"></div>
+          <div class="brand-logo-text"><span>Cisco vManage</span></div>
+          <p id="errorMessageBox" name="errorMessageBox" class="errorMessageBox "></p>
+          <div id="reboot_message" class="reboot-message-block" style="display: none;">
+            <div class="reboot-message">Server is initializing. Please wait.</div>
+            <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+          </div>
+          <div id="login_message" style="display: block;">
+            <div class="onyx-groupbox login-wrap" name="inputFields">
+              <div class="onyx-input-decorator login-input">
+                <input type="text" class="login-input-value" size="18" id="username" name="username" maxlength="64" placeholder="Username" value="{{ username }}" onfocus="hideErrorMessage()" autofocus="">
+              </div>
+              <div class="onyx-input-decorator login-input">
+                <input type="password" class="login-input-value" size="18" id="password" name="password" placeholder="Password" value="" onfocus="hideErrorMessage()">
+              </div>
+            </div>
+            <div class="onyx-sample-tools login-wrap">
+              <input type="submit" name="submit" value="Log In" class="login-button">
+            </div>
+          </div>
+        </form>
+		
+      </div>
+      </div>
+  
+
+</body></html>
