@@ -1,10 +1,50 @@
-<html><head>
-    <title>Cisco vManage</title>
-  </head>
-  <body onload="init()">
-  
-  You successfully logged in. Yeah.
 
-  -- Hafida's test ---
+<!DOCTYPE html>
 
-</body></html>
+<html>
+
+<head>
+
+    <title>vManage</title>
+
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+    <style>
+        #map {
+            width: 960px;
+            height:500px;
+        }
+</style>
+
+</head>
+
+<body>
+    You successfully logged in. Yeah. <br> <br>
+
+
+    <div id="map"></div>
+
+    <script>
+
+
+        var mymap = L.map('map').setView([51.505, -0.09], 13);
+
+
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors,  Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox.streets',
+        accessToken: 'pk.eyJ1IjoiaGJhcmhvdW4iLCJhIjoiY2p1eHVwY3V3MHJlYzQzbzBsYXdxa2ZweCJ9.0uGMr78GliSzhgsVrMhnTg'
+         }).addTo(mymap);
+
+        var marker = L.marker([51.5, -0.09]).addTo(mymap);
+        marker.bindPopup("<b>vManage</b><br>System IP : 1.1.1.1").openPopup();
+
+
+    </script>
+
+</body>
+
+</html>
