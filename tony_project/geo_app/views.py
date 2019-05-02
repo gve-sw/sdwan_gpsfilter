@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template.context import RequestContext
 from django.shortcuts import redirect
+from GPS_filtering import GPS_filtering
 
 def check_creds(username, password):
     if(username == 'Lee' and password == 'eggroll'):
@@ -13,6 +14,7 @@ def check_creds(username, password):
 def index (request):
 
     http = render(request, 'geo_app/index.html', {})
+
     if request.method == 'GET':
         return http
 
@@ -21,22 +23,11 @@ def index (request):
         password = request.POST['password']
         
         region = check_creds(username, password)
+
+        display = map_filter(region)
+
         if(region): 
-            return redirect('map')
+            return render(request, 'geo_app/map.html', locals())
+
         else:
             return http
-
-    #return render(request, 'geo_app/index.html', {})
-    #return HttpResponse(t.render(c))
-    #return render_to_response('tony_project/geo_app/index.html')
-
-#def index(request):
-#    return HttpResponse("Welcome to the SD WAN Login page. Please login.")
-
-def map(request):
-     #print(region)
-     http = render(request, 'geo_app/map.html', {})
-     return http
-    
-
-# Create your views here.
