@@ -1,4 +1,4 @@
-from get_Device_GPS import get_GPS
+from .get_Device_GPS import get_GPS
 import json
 import reverse_geocode 
 from geopy.geocoders import Nominatim

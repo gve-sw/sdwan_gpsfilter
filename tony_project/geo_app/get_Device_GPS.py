@@ -1,4 +1,4 @@
-from api_GET import api_get
+from .api_GET import api_get
 
 
 def get_GPS():

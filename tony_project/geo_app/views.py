@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template.context import RequestContext
 from django.shortcuts import redirect
-from GPS_filtering import GPS_filtering
+from .GPS_filtering import map_filter
 
 def check_creds(username, password):
     if(username == 'Lee' and password == 'eggroll'):

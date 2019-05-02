@@ -1,6 +1,6 @@
-from get_Device_Groups import api_device_group
-from get_Device_GPS import get_GPS
-from GPS_filtering import map_filter
+from .get_Device_Groups import api_device_group
+from .get_Device_GPS import get_GPS
+from .GPS_filtering import map_filter
 import json
 
 if __name__ == '__main__':
