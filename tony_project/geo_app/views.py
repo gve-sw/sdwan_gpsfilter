@@ -9,7 +9,7 @@ def check_creds(username, password):
     if(username == 'Lee' and password == 'eggroll'):
         return 'China'
     if(username == 'Tony' and password == 'burger'):
-        return 'USA'
+        return 'US'
     return False
 
 def index (request):

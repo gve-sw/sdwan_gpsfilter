@@ -11,7 +11,7 @@ if __name__ == '__main__':
     # Retrieve Device GPS locations
     #GPS = get_GPS()
 
-    display = map_filter("USA")
+    display = map_filter("US")
 
     # Json.dumps method converts the dictionary it into a JSON string for a prettier display
     pretty_json = (json.dumps(display, indent=3, sort_keys=True))
