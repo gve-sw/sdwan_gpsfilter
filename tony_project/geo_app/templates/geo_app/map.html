@@ -9,12 +9,12 @@
 
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> 
 
     <style>
         #map {
-            width: 960px;
-            height:500px;
+            width: 1360px;
+            height:800px;
         }
 </style>
 
@@ -22,7 +22,7 @@
 
 <body>
 
-    You successfully logged in. Yeah. You are from {{ region }}<br> <br>
+    You can see all devices from region {{ region }}<br> <br>
 
     <p>
        <!–– {{ display }}
@@ -33,7 +33,7 @@
 
     <script>
 
-        var mymap = L.map('map').setView([51.505, -0.09], 2);
+        var mymap = L.map('map').setView([0, 0], 2);
 
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors,  Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -44,38 +44,30 @@
 
         
         var display = '{{ display }}';
-        alert(display)
-        //document.write(display);
-        //document.write(display)
-        //document.write(display[vmanage])
-        //document.write(display['vmanage']);
-        //document.write(display["vmanage"]);
-        //json = display//'{"vmanage": {"Country": "US", "GPS": [41.87, -87.62]}}';
-        //str = JSON.stringify('{{ display }}');
-
-        //data = str;
-        
         rdisplay = display.replace(/&quot;/g,'"')
-        //rdisplay = display.replace(/(&quot\;)/g,"\"")
-        alert(rdisplay)
 
-        str = JSON.parse(rdisplay)
-        document.write(str.vmanage)
-        document.write(str[0])
-        document.write(str.Pa)
-        
-        //document.write(str[1])
-
-
-        //document.write(data);
-        //document.write(data['vmanage']);
-        //document.write(data[vmanage]);
-        //document.write(data["vmanage"]);
+        json = JSON.parse(rdisplay)
+        //document.write(json)
+        //document.write(rdisplay)
+        //document.write(json[1].device)
         
 
+        var n = 0;
+        
+        for(var item in json) {
+            n++;
+        }
 
-        var marker = L.marker([51.5, -0.09]).addTo(mymap);
-        marker.bindPopup("<b>vManage</b><br>System IP : 1.1.1.1").openPopup();
+        for (var i = 0; i < n; i++) {
+            var marker = L.marker([json[i].GPS[0], json[i].GPS[1]]).addTo(mymap);
+            marker.bindPopup(json[i].device).openPopup();
+        }
+        
+
+        
+
+
+
 
     </script>
 

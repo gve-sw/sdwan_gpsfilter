@@ -14,7 +14,7 @@ def map_filter(country):
     # Retrieve Device GPS locations
     GPS = get_GPS()
 
-    map = {}
+    map = []
 
     for device in GPS:
         
@@ -24,9 +24,9 @@ def map_filter(country):
         country = loc[0]['cc']
 
         if country == user_loc:
-            map.update ({device: {'Country': country, 'GPS' : coordinates}})
-    print("Map:")
-    print(map)
+            map.append (    ({'device' : device, 'Country' : country, 'GPS' : coordinates})     )
+    #print("Map:")
+    #print(map)
 
     json_map = json.dumps(map)
     print("JSON Map:")
