@@ -6,9 +6,9 @@ from .API.GPS_filtering import map_filter
 
 
 def check_creds(username, password):
-    if(username == 'Lee' and password == 'eggroll'):
+    if(username == 'Lee' and password == '1'):
         return 'China'
-    if(username == 'Tony' and password == 'burger'):
+    if(username == 'Tony' and password == '1'):
         return 'US'
     return False
 

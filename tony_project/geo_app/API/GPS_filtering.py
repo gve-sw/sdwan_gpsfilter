@@ -4,8 +4,8 @@ import reverse_geocode
 from geopy.geocoders import Nominatim
 import certifi
 import ssl
-import geopy.geocoders
 import reverse_geocoder as rg
+import json
 
 
 def map_filter(country):
@@ -25,7 +25,13 @@ def map_filter(country):
 
         if country == user_loc:
             map.update ({device: {'Country': country, 'GPS' : coordinates}})
-	
-    return (map) 
+    print("Map:")
+    print(map)
+
+    json_map = json.dumps(map)
+    print("JSON Map:")
+    print(json_map)
+
+    return (json_map) 
 
 
