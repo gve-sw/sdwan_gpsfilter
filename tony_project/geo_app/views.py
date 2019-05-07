@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template.context import RequestContext
 from django.shortcuts import redirect
-from .API.GPS_filtering import map_filter
+from .API.get_Device_GPS import get_GPS
 
 
 def check_creds(username, password):
@@ -25,7 +25,7 @@ def index (request):
         
         region = check_creds(username, password)
 
-        display = map_filter(region)
+        display = get_GPS(region)
 
         if(region): 
             return render(request, 'geo_app/map.html', locals())
