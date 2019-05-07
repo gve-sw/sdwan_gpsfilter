@@ -31,9 +31,9 @@
 
     <div id="map"></div>
 
-    <script>
+<script>
 
-        var mymap = L.map('map').setView([0, 0], 2);
+        var mymap = L.map('map').setView([38.642763, -98.327818], 4);
 
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors,  Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -42,31 +42,33 @@
         accessToken: 'pk.eyJ1IjoiaGJhcmhvdW4iLCJhIjoiY2p1eHVwY3V3MHJlYzQzbzBsYXdxa2ZweCJ9.0uGMr78GliSzhgsVrMhnTg'
          }).addTo(mymap);
 
-        
         var display = '{{ display }}';
-        rdisplay = display.replace(/&quot;/g,'"')
 
-        json = JSON.parse(rdisplay)
-        //document.write(json)
-        //document.write(rdisplay)
-        //document.write(json[1].device)
-        
-
-        var n = 0;
-        
-        for(var item in json) {
-            n++;
+        function decodeHtml(html) {
+            var txt = document.createElement("textarea");
+            txt.innerHTML = html;
+            return txt.value;
         }
 
-        for (var i = 0; i < n; i++) {
-            var marker = L.marker([json[i].GPS[0], json[i].GPS[1]]).addTo(mymap);
-            marker.bindPopup(json[i].device).openPopup();
-        }
-        
+        output = decodeHtml(display)
 
-        
+        var json = JSON.parse(output);
 
 
+      for (var device in json) {
+        var device_content = json[device]
+        var json2 = JSON.stringify(device_content);
+        var json3 = JSON.parse(json2);
+        var lat = json3.lat
+        var lon = json3.lon
+
+        var marker ="Marker"
+        var markerName = marker + "_" + device
+
+        markerName = L.marker([lat, lon]).addTo(mymap);
+        markerName.bindPopup("<b>" + device  + "</b><br>A small description").openPopup();
+
+      }
 
 
     </script>

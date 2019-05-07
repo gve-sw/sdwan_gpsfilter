@@ -14,17 +14,19 @@ def map_filter(country):
     # Retrieve Device GPS locations
     GPS = get_GPS()
 
-    map = []
+    map = {}
 
     for device in GPS:
         
         coordinates = (GPS[device]['lat'], GPS[device]['lon'])
+        lat = GPS[device]['lat']
+        lon = GPS[device]['lon']
 
         loc = rg.search(coordinates)
         country = loc[0]['cc']
 
         if country == user_loc:
-            map.append (    ({'device' : device, 'Country' : country, 'GPS' : coordinates})     )
+            map.update ({device: {'Country': country, 'lat' : lat, 'lon' : lon}})
     #print("Map:")
     #print(map)
 
