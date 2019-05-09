@@ -9,8 +9,8 @@
 
 Now there should be a login mask that looks like the one vManage usually provides. The login credentials are hard coded into the Python code so far (a database will added later on) and there are two different accounts:
 
-1. Lee // eggroll
-2. Tony // burger
+1. Roberto // 1
+2. Tony // 1
 
 If the login is successfull, the user is redirected to the page tony_project/geo_app/templates/geo_app/map.html
 
