@@ -31,8 +31,6 @@ def map_filter(country):
     #print(map)
 
     json_map = json.dumps(map)
-    print("JSON Map:")
-    print(json_map)
 
     return (json_map) 
 

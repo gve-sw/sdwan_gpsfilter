@@ -950,7 +950,6 @@
                                                     }).addTo(mymap);
 
                                                     mymap.zoomControl.setPosition('topright');
-
                                                     var display = '{{ display }}';
 
                                                     function decodeHtml(html) {
@@ -960,22 +959,33 @@
                                                     }
 
                                                     output = decodeHtml(display)
-
                                                     var json = JSON.parse(output);
 
-
                                                     for (var device in json) {
-                                                        var device_content = json[device]
+                                                        var device_content = json[device];
                                                         var json2 = JSON.stringify(device_content);
                                                         var json3 = JSON.parse(json2);
-                                                        var lat = json3.lat
-                                                        var lon = json3.lon
+                                                        var lat = json3.lat;
+                                                        var lon = json3.lon;
+                                                        var dscr = json3.dscr;
+                                                
 
-                                                        var marker ="Marker"
-                                                        var markerName = marker + "_" + device
+                                                        var marker ="Marker";
+                                                        var markerName = marker + "_" + device;
 
+                                                        var point = L.point(5, 5);
+                                                        var popupOptions =
+                                                           {
+                                                                'maxWidth': '300',
+                                                                'minWidth': '300',
+                                                                'className' : 'another-popup' // classname for another popup
+                                                            }
+                                                        //    L.marker([51.5, -0.09]).addTo(mymap);
+                                                        //    .bindPopup(popupContent, popupOptions);
+
+                                                     
                                                         markerName = L.marker([lat, lon]).addTo(mymap);
-                                                        markerName.bindPopup(device).openPopup();
+                                                        markerName.bindPopup(dscr, popupOptions);
    
 
                                                     }
