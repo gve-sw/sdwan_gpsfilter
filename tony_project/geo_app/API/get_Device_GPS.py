@@ -1,7 +1,5 @@
 from .api_GET import api_get
 import json
-import reverse_geocode 
-from geopy.geocoders import Nominatim
 import certifi
 import ssl
 import reverse_geocoder as rg

@@ -1,4 +1,5 @@
 from .api_GET import api_get
+import json
 
 def api_device_group(region):
 	response = api_get("dataservice/group/devices?groupId=" + region)
@@ -14,4 +15,9 @@ def api_device_group(region):
 		coordinates = (latitude, longitude)
 		map.update ({hostname: {'Type': device_type, 'lat' : latitude, 'lon' : longitude}})
 
-	return(map)
+
+	json_map = json.dumps(map)
+
+	return (json_map) 
+
+    

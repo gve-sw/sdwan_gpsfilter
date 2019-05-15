@@ -61,6 +61,9 @@ def map_region (request, region):
 
     region = region
     display = api_device_group(region)
+    print("this is a test")
+    print(display)
+
 
     display_json = json.loads(display)
 
@@ -72,5 +75,6 @@ def map_region (request, region):
         temp = {"dscr": dscr}
         display_json[device].update(temp)
         display = json.dumps(display_json)
+
 
     return render(request, 'geo_app/map.html', locals())
