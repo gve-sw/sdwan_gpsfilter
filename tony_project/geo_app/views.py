@@ -12,9 +12,11 @@ from django.template.loader import render_to_string
 
 def check_creds(username, password):
     if(username == 'Roberto' and password == '1'):
-        return 'BR', 'America'
+        return 'BR', 'america'
     if(username == 'Tony' and password == '1'):
-        return 'US', 'America'
+        return 'US', 'america'
+    if(username == 'Nico' and password == '1'):
+        return 'DE', 'europe'
     return False
 
 def index (request):
@@ -61,9 +63,6 @@ def map_region (request, region):
 
     region = region
     display = api_device_group(region)
-    print("this is a test")
-    print(display)
-
 
     display_json = json.loads(display)
 
