@@ -1,0 +1,89 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+      <link rel="stylesheet" href="sweetalert2/dist/sweetalert2.min.css">
+      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+
+      <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script> 
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+    </head>
+    <body>
+
+
+      <style>
+        body {
+          font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+          background-image: url("../../../static/geo_app/images/back.png");
+          background-size: cover;
+        }
+
+        #map {
+          width: 100%;
+          height:800px;
+
+        }
+      </style>
+
+      <div id="map"></div>
+
+      <script>
+
+        var country = '{{ country }}';
+        var region = '{{ region }}' ;
+        var username = '{{ username }}' ;
+
+        (async function getoption () {
+
+          const {value: option} = await Swal.fire({
+            title: 'Hello {{ username }}',
+            html:
+            " <b>Welcome to Jan's and Hafida's Software project.</b> <br> <br> " +
+            'The goal of the project is to display a customised map based on the user location. <br><br>' +
+            'Our database mention that you are based in {{ country }}, {{ region }} <br><br>' +
+            'Please select a method to display your map',
+            imageUrl: '../../../static/geo_app/images/geek.png',
+            imageWidth: 200,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+            animation: false,
+            input: 'select',
+            inputOptions: {
+              'gps': 'Customised map by on GPS location',
+              'deviceGroups': 'Customised map by on device groups',
+            },
+            inputPlaceholder: 'Select a method',
+            showCancelButton: true,
+            confirmButtonText: 'Show me the map!',
+            cancelButtonText: 'Back to login page',
+          }).then(result => {
+            if (result.value) {
+              if (result.value === 'gps') {   
+                window.location.href = "map/gps/" + country;
+
+              } else {
+                window.location.href = "map/device/" + region;
+              }
+
+            }
+            else {
+              window.location.href = "";
+            }
+          })
+
+        })()
+
+      </script>
+
+
+
+
+
+
+
+    </body>
+    </html>

@@ -35,8 +35,6 @@ def get_GPS(country):
 
 
     json_map = json.dumps(map)
-    print("JSON Map:")
-    print(json_map)
 
     return (json_map) 
 

@@ -5,14 +5,14 @@ import sys
 
 def api_get(endpoint):
 
-    #    vManage = "https://sdwandemo.cisco.com:443/"
-    vManage = "https://172.20.14.202:8443/"
+    vManage = "https://sdwandemo.cisco.com:443/"
+    #vManage = "https://172.20.14.202:8443/"
 
     url = vManage + endpoint
 
     payload = ""
-    #    auth = requests.auth.HTTPBasicAuth('demo','demo')
-    auth = requests.auth.HTTPBasicAuth('admin','admin')
+    auth = requests.auth.HTTPBasicAuth('demo','demo')
+    #auth = requests.auth.HTTPBasicAuth('admin','admin')
 
     headers = {
         'Accept': "application/json",
