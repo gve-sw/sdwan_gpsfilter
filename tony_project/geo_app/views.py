@@ -64,16 +64,21 @@ def map_region (request, region):
     region = region
     display = api_device_group(region)
 
-    display_json = json.loads(display)
+    if not (display) :
 
-    for device in display_json:
+        display_json = json.loads(display)
 
-        dscr = '''<iframe srcdoc='<html><b>Name: {}</b><br>Polled via dataservice/group/devices?groupId={})<br><br><b>GPS: ({}, {})</b><br>Polled via dataservice/device/data/<br><br>Visible because user <b></b> is from <b>{}</b></html>'></iframe>'''.format(device,region, display_json[device]["lat"], display_json[device]["lon"], region)
-        # <iframe style="width:100%; height:500px;overflow:auto;">
-        #dscr = '''<iframe srcdoc='<html>Hallo</html>'</iframe>'''
-        temp = {"dscr": dscr}
-        display_json[device].update(temp)
-        display = json.dumps(display_json)
+        for device in display_json:
+
+            dscr = '''<iframe srcdoc='<html><b>Name: {}</b><br>Polled via dataservice/group/devices?groupId={})<br><br><b>GPS: ({}, {})</b><br>Polled via dataservice/device/data/<br><br>Visible because user <b></b> is from <b>{}</b></html>'></iframe>'''.format(device,region, display_json[device]["lat"], display_json[device]["lon"], region)
+            # <iframe style="width:100%; height:500px;overflow:auto;">
+            #dscr = '''<iframe srcdoc='<html>Hallo</html>'</iframe>'''
+            temp = {"dscr": dscr}
+            display_json[device].update(temp)
+            display = json.dumps(display_json)
+
+    else:
+        print("##### No Device group found ##### ")
 
 
     return render(request, 'geo_app/map.html', locals())
