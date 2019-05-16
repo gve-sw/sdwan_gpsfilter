@@ -70,7 +70,7 @@ def map_region (request, region):
 
         for device in display_json:
 
-            dscr = '''<iframe srcdoc='<html><b>Name: {}</b><br>Polled via dataservice/group/devices?groupId={})<br><br><b>GPS: ({}, {})</b><br>Polled via dataservice/device/data/<br><br>Visible because user <b></b> is from <b>{}</b></html>'></iframe>'''.format(device,region, display_json[device]["lat"], display_json[device]["lon"], region)
+            dscr = '''<iframe srcdoc='<html><b>Name: {}</b><br>Polled via dataservice/group/devices?groupId={}<br><br><b>GPS: ({}, {})</b><br>Polled via dataservice/device/data/<br><br>Visible because user <b></b> is from <b>{}</b></html>'></iframe>'''.format(device,region, display_json[device]["lat"], display_json[device]["lon"], region)
             # <iframe style="width:100%; height:500px;overflow:auto;">
             #dscr = '''<iframe srcdoc='<html>Hallo</html>'</iframe>'''
             temp = {"dscr": dscr}
