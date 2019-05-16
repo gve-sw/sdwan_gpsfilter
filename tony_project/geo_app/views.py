@@ -47,7 +47,7 @@ def map_country (request, country):
 
     for device in display_json:
 
-        dscr = '''<iframe srcdoc='<html><b>Name: {}</b><br>Polled via dataservice/device/data/<br><br><b>GPS: ({}, {})</b><br>Polled via dataservice/device/data/<br><br>Visible because user <b></b> is from <b>{}</b></html>'></iframe>'''.format(device, display_json[device]["lat"], display_json[device]["lon"], country)
+        dscr = '''<iframe srcdoc='<html><b>Name: {}</b><br>Polled via dataservice/device/<br><br><b>GPS: ({}, {})</b><br>Polled via dataservice/device/<br><br>Visible because user <b></b> is from <b>{}</b></html>'></iframe>'''.format(device, display_json[device]["lat"], display_json[device]["lon"], country)
         # <iframe style="width:100%; height:500px;overflow:auto;">
         #dscr = '''<iframe srcdoc='<html>Hallo</html>'</iframe>'''
         temp = {"dscr": dscr}
