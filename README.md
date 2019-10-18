@@ -2,6 +2,8 @@
 
 ## How to start
 
+Be aware that you need to have a Viptela solutioon and have vManage to add this feature. 
+
 1. Clone the repository
 2. Go into the directory tony_project
 3. Start the web server via: python3 manage.py runserver
