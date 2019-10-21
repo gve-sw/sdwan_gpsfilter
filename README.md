@@ -1,6 +1,23 @@
 # sdwan_gpsfilter
 
-## How to start
+# Introduction 
+
+SD-WAN features from Viptela with Geo location requirements need to be crossed with another features such as role-based access control in specific feature with security enhancements.
+
+This code shows a customize  portal that  align Geo-locations  devices and role-base access control  security  feature  to offer secure sd-wan 
+
+# High level Design
+
+![High Level Design](https://github.com/moacosta/sdwan_gpsfilter/blob/master/GPS_Vitpela_PoV.png)
+
+
+# Mock up 
+
+![Mock Up](https://github.com/moacosta/sdwan_gpsfilter/blob/master/GPS_Viptela2.png)
+
+
+
+# How to start
 
 Be aware that you need to have a Viptela solutioon and have vManage to add this feature. 
 
