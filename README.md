@@ -13,7 +13,7 @@ This code shows a customize  portal that  align Geo-locations  devices and role-
 
 # Mock up 
 
-![Mock Up](https://github.com/moacosta/sdwan_gpsfilter/blob/master/GPS_Viptela2.png)
+![Mock Up](https://github.com/moacosta/sdwan_gpsfilter/blob/master/GPS_Viptela2.3png)
 
 
 
@@ -33,6 +33,8 @@ Now there should be a login mask that looks like the one vManage usually provide
 
 If the login is successfull, the user is redirected to the page tony_project/geo_app/templates/geo_app/map.html
 
-Currently it did not work that any parameters are sent to map.html, but the plan is to send the users country via a GET or POST parameter to map.html, so that we can include a map on the page and filter by the given country.
+This mock up only display showing the on the map, to show the gps feature. 
+
+Currently it does not work that any parameters are sent to map.html, but to have the full feature it is needed to send the users country via a GET or POST parameter to map.html, so that we can include a map on the page and filter by the given country.
 
 Example: Lee logs in successfully, the string "China" is send to map.html and on map.html we poll the vEdge routers, filter for everything that can be seen in "China" (or "Asia" or however we want to name them later).
